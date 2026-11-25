@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тренажёр: типы подчинения придаточных</title>
+<style>
+:root{--bg:#f7f2ec;--card:#fff;--tx:#2a211b;--ac:#9a4a1f;--bd:#e0d4c6;--mu:#6e5f52;--ok:#2f6b3a;--no:#a3281f;--okb:#e6f1e4;--nob:#f8e4e0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1814;--card:#2a221c;--tx:#f0e8df;--ac:#e0a074;--bd:#4a3d33;--mu:#b9a998;--ok:#8fd09a;--no:#f0897f;--okb:#26382a;--nob:#3d2623;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1e1814;--card:#2a221c;--tx:#f0e8df;--ac:#e0a074;--bd:#4a3d33;--mu:#b9a998;--ok:#8fd09a;--no:#f0897f;--okb:#26382a;--nob:#3d2623;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--c1:#2a6f97;--c2:#7a4aa0;--c3:#a06a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c1:#7ab8dc;--c2:#c4a0e0;--c3:#e0b050}}
+:root[data-theme="dark"]{--c1:#7ab8dc;--c2:#c4a0e0;--c3:#e0b050}
+.seg.cm{font-weight:bold;color:var(--ac)}
+.seg.c1{border-bottom:2px solid var(--c1)}.seg.c2{border-bottom:2px solid var(--c2)}.seg.c3{border-bottom:2px solid var(--c3)}
+.lb{font-size:.82rem;font-weight:bold;white-space:nowrap}.lb.c1{color:var(--c1)}.lb.c2{color:var(--c2)}.lb.c3{color:var(--c3)}
+#hint .fb{line-height:2.1}
+#snt{position:relative}
+#snt.ann{line-height:3.7;padding-top:24px}
+#ov{position:absolute;left:0;top:0;width:100%;height:100%;margin:0;overflow:visible;pointer-events:none}
+.ann u.w{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.ann .seg.c1{border:0;background:color-mix(in srgb,var(--c1) 16%,transparent)}
+.ann .seg.c2{border:0;background:color-mix(in srgb,var(--c2) 16%,transparent)}
+.ann .seg.c3{border:0;background:color-mix(in srgb,var(--c3) 16%,transparent)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.55 Georgia,"Times New Roman",serif}
+.w{max-width:920px;margin:0 auto;padding:18px 14px 40px}
+h1{font-size:1.5rem;margin:6px 0 4px;color:var(--ac)}
+.sub{color:var(--mu);margin:0 0 14px;font-size:.95rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button,.btn{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:9px 16px;border-radius:10px;cursor:pointer}
+.tabs button.on,.btn.pri{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.sc{overflow-x:auto}
+table{border-collapse:collapse;min-width:700px;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--bd);padding:10px;vertical-align:top;text-align:left}
+th{background:var(--bg);color:var(--ac);text-align:center}
+td.ex{font-style:italic}
+svg{width:110px;height:84px;display:block;margin:0 auto}
+svg *{stroke:var(--tx);fill:none;stroke-width:1.6}
+svg text{fill:var(--tx);stroke:none;font:12px Georgia,serif;text-anchor:middle}
+.note{color:var(--mu);font-size:.92rem}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden;margin:8px 0 14px}
+.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+.meta{display:flex;justify-content:space-between;color:var(--mu);font-size:.92rem}
+.s{font-size:1.15rem;margin:10px 0 16px}
+.opts{display:grid;gap:10px}
+.opts button{font:inherit;text-align:left;border:1.5px solid var(--bd);background:var(--card);color:var(--tx);padding:12px 14px;border-radius:10px;cursor:pointer}
+.opts button:hover:not(:disabled){border-color:var(--ac)}
+.opts button.ok{background:var(--okb);border-color:var(--ok)}
+.opts button.no{background:var(--nob);border-color:var(--no)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;border-left:4px solid var(--ac);background:var(--bg)}
+.fb b.g{color:var(--ok)}.fb b.b{color:var(--no)}
+.hid{display:none}
+.big{font-size:2.2rem;color:var(--ac);margin:0}
+li{margin:6px 0}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>Типы подчинения придаточных</h1>
+<p class="sub">Сложноподчинённые предложения с несколькими придаточными: определи тип подчинения.</p>
+<div class="tabs"><button id="tm" class="on">Памятка</button><button id="tt">Тренажёр</button></div>
+
+<section id="memo">
+<div class="card sc">
+<table>
+<tr><th>ПОСЛЕДОВАТЕЛЬНОЕ</th><th>ОДНОРОДНОЕ</th><th>НЕОДНОРОДНОЕ<br>(параллельное)</th></tr>
+<tr>
+<td>Первое придаточное относится к [главной части], второе — к (первому придаточному) и т. д.</td>
+<td>Придаточные одного типа (отвечающие на один и тот же вопрос) относятся к одному и тому же [главному предложению] и к одному слову в нём.<br><i class="note">Между придаточными может быть сочинительный союз (И, А, НО, ИЛИ и др.)</i></td>
+<td>Придаточные относятся к одному и тому же [главному предложению], но к разным словам в нём // либо к одному слову, но отвечают на разные вопросы.</td>
+</tr>
+<tr>
+<td><svg viewBox="0 0 110 84"><rect x="45" y="4" width="20" height="18"/><line x1="55" y1="22" x2="55" y2="36"/><circle cx="55" cy="46" r="10"/><line x1="55" y1="56" x2="55" y2="62"/><circle cx="55" cy="72" r="10"/><text x="55" y="17">1</text><text x="55" y="50">2</text><text x="55" y="76">3</text></svg></td>
+<td><svg viewBox="0 0 110 84"><rect x="45" y="4" width="20" height="18"/><line x1="52" y1="22" x2="30" y2="52"/><line x1="58" y1="22" x2="80" y2="52"/><circle cx="26" cy="62" r="10"/><circle cx="84" cy="62" r="10"/><text x="55" y="17">1</text><text x="26" y="66">2</text><text x="84" y="66">3</text><text x="55" y="80">, или (и)</text></svg></td>
+<td><svg viewBox="0 0 110 84"><rect x="20" y="4" width="70" height="18"/><line x1="38" y1="22" x2="38" y2="52"/><line x1="72" y1="22" x2="72" y2="52"/><circle cx="38" cy="62" r="10"/><circle cx="72" cy="62" r="10"/><text x="55" y="17">1</text><text x="38" y="66">2</text><text x="72" y="66">3</text></svg></td>
+</tr>
+<tr>
+<td class="ex">[Молодые казаки ехали смутно и удерживали слёзы], (почему?) (так как боялись отца), (какого?) (который тоже был несколько смущён), (несмотря на что?) (хотя старался этого не показывать). (Н. Гоголь)</td>
+<td class="ex"><b>а)</b> с одинаковыми союзами + «и»: [Он рад], (чему?) что вернулся и (чему?) что этот день встретит с товарищами.<br><b>б)</b> с пропуском второго союза + «и»: (Когда?) Когда дождик пошёл и (когда?) всё вокруг засверкало, [мы по тропе вышли из леса].<br><b>в)</b> с различными союзами + запятой: [Неизвестно], (что?) откуда она родом, (что?) сколько ей лет…</td>
+<td class="ex"><b>а)</b> к разным словам в главной части: (Когда?) Как только подошло время, [я отправился на условленное место, уселся на камень и слушал], (что?) как море тихо плескалось у моих ног.<br><b>б)</b> к одному слову, но на разные вопросы: (Когда?) Когда у меня в руках новая книга, [я чувствую], (что?) что в мою жизнь вошло что-то новое, говорящее, чудесное. (М. Горький)</td>
+</tr>
+</table>
+</div>
+<p class="note">Примечание: в каждом случае придаточных предложений может быть более двух — теоретически сколько угодно.</p>
+<div class="card"><b>Алгоритм разбора</b>
+<ol><li>Подчеркни грамматические основы.</li><li>Возьми в [квадратные скобки] главную часть.</li><li>Обведи подчинительные союзы в придаточных частях.</li><li>Найди слова, от которых можно задать вопросы к каждой придаточной, и запиши вопросы.</li><li>Нарисуй схему, вписав союзы, и по таблице определи тип подчинения.</li></ol></div>
+<button class="btn pri" id="go1">К тренажёру</button>
+</section>
+
+<section id="train" class="hid">
+<div class="card" id="q"></div>
+<div class="card hid" id="res"></div>
+</section>
+</div>
+<script>
+var T={p:"Последовательное",o:"Однородное",n:"Неоднородное (параллельное)"};
+var D=[
+{s:"Всё доступно человеку в этой жизни, если только страстно желать, так страстно, чтобы и жизни самой не жалко стало при этом. (Л. Леонов)",a:"p",e:"Придаточное «если только страстно желать» относится к главной части, а «чтобы…» — к первому придаточному (так страстно — чтобы)."},
+{s:"Мы вспоминаем час великий тот, когда впервые замолчали пушки, когда встречал победу весь народ и в городах, и в каждой деревушке. (М. Исаковский)",a:"o",e:"Обе придаточные с союзом «когда» относятся к одному слову главной части («час» — какой?), отвечают на один вопрос."},
+{s:"Если бы мне иметь сто жизней, они не насытили бы всей жажды познания, которая сжигает меня. (В. Брюсов)",a:"n",e:"Обе придаточные относятся к главной части, но к разным словам: «если бы…» — к сказуемому, «которая…» — к слову «жажды»."},
+{s:"Когда наступало первое тепло, не было дня с самого моего раннего детства, чтобы я не ходил играть в ближний сад Медицинской академии. (М. Добужинский)",a:"n",e:"Обе придаточные зависят от одной главной части, вопросы к ним задаются от разных слов (или разные вопросы)."},
+{s:"В ветреные дни от холода не спасала даже шуба, в которую я запихивался, если было нужно выйти во двор.",a:"p",e:"«в которую…» относится к главной части (шуба — какая?), а «если было нужно…» — к первому придаточному."},
+{s:"Оленин знал, что в лесу опасно, что абреки скрываются в этих лесах. (Л. Толстой)",a:"o",e:"Обе придаточные с союзом «что» относятся к слову «знал» и отвечают на один вопрос (что?)."},
+{s:"Когда я всматриваюсь, мне даже чудится, что я начинаю видеть на сотни, на тысячи километров вокруг.",a:"n",e:"Обе придаточные относятся к одному слову главной части, но отвечают на разные вопросы: когда? и что?"},
+{s:"Если бы Серебряная Звезда сошла с неба и я мог бы любоваться её красотой день и ночь, то я был бы счастливейшим человеком на земле.",a:"o",e:"Две придаточные с «если бы» (второй союз пропущен) соединены союзом «и» и относятся к главной части, вопрос один и тот же."},
+{s:"Ранней весной, как только сойдёт снег, поле, где была посеяна озимая рожь, покрывается сочной зеленью.",a:"n",e:"«как только сойдёт снег» — к сказуемому (когда?), «где была посеяна…» — к слову «поле» (какое?). Слова разные."},
+{s:"Ей не зря говорят, что, когда она играет на скрипке, люди готовы слушать часами.",a:"p",e:"Рядом стоят два подчинительных союза: «что» относится к главной части, а «когда…» — к придаточному с «что»."},
+{s:"Я знаю, что он примет верное решение, и думаю, что смогу ему в этом помочь.",a:"n",e:"Придаточные с «что» зависят от разных слов главной части: «знаю» и «думаю»."},
+{s:"Звягинцев не мог понять, где он находится, хотя хорошо знал этот район.",a:"n",e:"Обе придаточные относятся к главной части и отвечают на разные вопросы: «где…» — что?, «хотя…» — несмотря на что?"},
+{s:"И папа прочёл заметку о том, что прошлой ночью сейсмическая станция обсерватории отметила в нашем городе небольшие подземные толчки, следствие отдалённого землетрясения, эпицентр которого расположен на малоазиатском берегу Чёрного моря в Турции, где разрушено несколько селений.",a:"p",e:"Цепочка: «что…» — к главной части, «эпицентр которого…» — к первому придаточному, «где разрушено…» — ко второму."},
+{s:"Сопровождаемые телефонистом с катушкой кабеля и двумя связными, они оказались на вершине, когда солнце подходило уже к горизонту и первые его лучи пытались пробить затянутое облаками и пеленой дыма небо.",a:"o",e:"Две придаточные с «когда» (второй союз пропущен) соединены союзом «и», обе относятся к слову «оказались»."}
+];
+var M=function(t){return{t:t,g:"m"}},S=function(g,t,w,q){return{t:t,g:g,w:w,q:q}},P=function(g,t){return{t:t,g:g}},C=function(t){return{t:t,c:1}};
+var H=[
+[M("Всё доступно человеку в этой жизни,"),S(1,"если только страстно желать, так страстно,","доступно","при каком условии?"),S(2,"чтобы и жизни самой не жалко стало при этом.","страстно","насколько?")],
+[M("Мы вспоминаем час великий тот,"),S(1,"когда впервые замолчали пушки,","час","какой?"),S(2,"когда встречал победу весь народ и в городах, и в каждой деревушке.","час","какой?")],
+[S(1,"Если бы мне иметь сто жизней,","не насытили бы","в каком случае?"),M("они не насытили бы всей жажды познания,"),S(2,"которая сжигает меня.","жажды","какой?")],
+[S(1,"Когда наступало первое тепло,","не было","когда?"),M("не было дня с самого моего раннего детства,"),S(2,"чтобы я не ходил играть в ближний сад Медицинской академии.","дня","какого?")],
+[M("В ветреные дни от холода не спасала даже шуба,"),S(1,"в которую я запихивался,","шуба","какая?"),S(2,"если было нужно выйти во двор.","запихивался","при каком условии?")],
+[M("Оленин знал,"),S(1,"что в лесу опасно,","знал","что?"),S(2,"что абреки скрываются в этих лесах.","знал","что?")],
+[S(1,"Когда я всматриваюсь,","чудится","когда?"),M("мне даже чудится,"),S(2,"что я начинаю видеть на сотни, на тысячи километров вокруг.","чудится","что?")],
+[S(1,"Если бы Серебряная Звезда сошла с неба","был бы","в каком случае?"),C("и"),S(2,"<i>если бы</i> я мог бы любоваться её красотой день и ночь,","был бы","в каком случае?"),M("то я был бы счастливейшим человеком на земле.")],
+[M("Ранней весной,"),S(1,"как только сойдёт снег,","покрывается","когда?"),M("поле,"),S(2,"где была посеяна озимая рожь,","поле","какое?"),M("покрывается сочной зеленью.")],
+[M("Ей не зря говорят,"),S(1,"что,","говорят","что?"),S(2,"когда она играет на скрипке,","готовы слушать","когда?"),P(1,"люди готовы слушать часами.")],
+[M("Я знаю,"),S(1,"что он примет верное решение,","знаю","что?"),M("и думаю,"),S(2,"что смогу ему в этом помочь.","думаю","что?")],
+[M("Звягинцев не мог понять,"),S(1,"где он находится,","не мог понять","что?"),S(2,"хотя хорошо знал этот район.","не мог понять","несмотря на что?")],
+[M("И папа прочёл заметку о том,"),S(1,"что прошлой ночью сейсмическая станция обсерватории отметила в нашем городе небольшие подземные толчки, следствие отдалённого землетрясения,","о том","что?"),S(2,"эпицентр которого расположен на малоазиатском берегу Чёрного моря в Турции,","землетрясения","какого?"),S(3,"где разрушено несколько селений.","Турции","какой?")],
+[M("Сопровождаемые телефонистом с катушкой кабеля и двумя связными, они оказались на вершине,"),S(1,"когда солнце подходило уже к горизонту","оказались","когда?"),C("и"),S(2,"<i>когда</i> первые его лучи пытались пробить затянутое облаками и пеленой дыма небо.","оказались","когда?")]
+];
+D.forEach(function(d,k){d.h=H[k]});
+function hint(d){
+ var F={},L={};
+ d.h.forEach(function(x,k){if(x.g){if(F[x.g]===undefined)F[x.g]=k;L[x.g]=k}});
+ var o=d.h.map(function(x,k){
+  if(x.c)return x.t+" ";
+  var m=x.g==="m",a=F[x.g]===k?(m?"[":"("):"",z=L[x.g]===k?(m?"]":")"):"";
+  var lb=x.q?'<span class="lb c'+x.g+'">«'+x.w+'» → '+x.q+'</span> ':"";
+  return lb+'<span class="seg '+(m?"cm":"c"+x.g)+'">'+a+x.t+z+'</span> ';
+ }).join("");
+ $("hint").innerHTML='<div class="fb">'+o+'<br><span class="note">[ ] — главная часть, ( ) — придаточные. Стрелка → идёт от слова, к которому задаётся вопрос, к придаточной части.</span></div>';
+}
+var $=function(i){return document.getElementById(i)};
+var cur=null;
+function ann(d){
+ var el=$("snt"),H=d.h,mk={},n=0;
+ H.forEach(function(x){if(!x.q||x.w in mk)return;mk[x.w]=null;for(var k=0;k<H.length;k++){var t=H[k].t,p=x.w==="страстно"?t.lastIndexOf(x.w):t.indexOf(x.w);if(p>=0){mk[x.w]={k:k,p:p,id:"w"+(n++)};break}}});
+ var F={},L={};H.forEach(function(x,k){if(x.g){if(F[x.g]===undefined)F[x.g]=k;L[x.g]=k}});
+ var out=H.map(function(x,k){
+  if(x.c)return x.t+" ";
+  var t=x.t,ins=[];
+  Object.keys(mk).forEach(function(w){var m=mk[w];if(m&&m.k===k)ins.push({p:m.p,w:w,id:m.id})});
+  ins.sort(function(a,b){return b.p-a.p});
+  ins.forEach(function(q){t=t.slice(0,q.p)+'<u class="w" id="'+q.id+'">'+q.w+'</u>'+t.slice(q.p+q.w.length)});
+  var m=x.g==="m",a=F[x.g]===k?(m?"[":"("):"",z=L[x.g]===k?(m?"]":")"):"";
+  return '<span class="seg '+(m?"cm":"c"+x.g)+'" id="s'+k+'">'+a+t+z+'</span> ';
+ }).join("");
+ var au=d.s.match(/\s(\([^)]*\))$/);
+ el.innerHTML=out+(au?'<span class="note"> '+au[1]+'</span>':"")+'<svg id="ov"></svg>';
+ el.classList.add("ann");
+ $("hint").innerHTML='<p class="note">[ ] — главная часть, ( ) — придаточные. Подчёркнуто слово, от которого задаётся вопрос; стрелка ведёт к придаточной части.</p>';
+ cur={d:d,mk:mk};draw();
+}
+function draw(){
+ if(!cur)return;
+ var el=$("snt"),svg=$("ov");if(!el||!svg||!el.classList.contains("ann"))return;
+ var R=el.getBoundingClientRect(),H=cur.d.h,mk=cur.mk,n=0,b='<defs>';
+ [1,2,3].forEach(function(c){b+='<marker id="ah'+c+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" style="fill:var(--c'+c+');stroke:none"/></marker>'});
+ b+='</defs>';
+ H.forEach(function(x,k){
+  if(!x.q||!mk[x.w])return;
+  var we=$(mk[x.w].id).getClientRects()[0],te=$("s"+k).getClientRects()[0];if(!we||!te)return;
+  var W={l:we.left-R.left,r:we.right-R.left,t:we.top-R.top,b:we.bottom-R.top},T={l:te.left-R.left,r:te.right-R.left,t:te.top-R.top,b:te.bottom-R.top};
+  var x1=(W.l+W.r)/2,x2=T.l+Math.min(14,(T.r-T.l)/2),off=(n++%3)*5,y1,yh,y2,ly;
+  if(T.b<=W.t+2){y1=W.t-1;yh=W.t-7-off;y2=T.b+1;ly=yh-4}
+  else if(T.t>=W.b-2){y1=W.b+1;yh=W.b+7+off;y2=T.t-1;ly=yh+15}
+  else{y1=W.t-1;yh=Math.min(W.t,T.t)-7-off;y2=T.t-1;ly=yh-4}
+  b+='<path d="M'+x1+','+y1+' V'+yh+' H'+x2+' V'+y2+'" marker-end="url(#ah'+x.g+')" style="fill:none;stroke:var(--c'+x.g+');stroke-width:1.6px"/>';
+  b+='<text x="'+((x1+x2)/2)+'" y="'+ly+'" style="fill:var(--c'+x.g+');stroke:var(--card);stroke-width:4px;paint-order:stroke;font:bold 13px Georgia,serif;text-anchor:middle">'+x.q+'</text>';
+ });
+ svg.innerHTML=b;
+}
+window.addEventListener("resize",draw);
+function tab(m){$("memo").classList.toggle("hid",!m);$("train").classList.toggle("hid",m);$("tm").classList.toggle("on",m);$("tt").classList.toggle("on",!m);window.scrollTo(0,0)}
+$("tm").onclick=function(){tab(true)};$("tt").onclick=function(){tab(false)};$("go1").onclick=function(){tab(false)};
+var ord,i,sc,miss;
+function sh(a){for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+function start(list){ord=sh(list.slice());i=0;sc=0;miss=[];$("res").classList.add("hid");$("q").classList.remove("hid");show()}
+function show(){
+ if(i>=ord.length){fin();return}
+ var d=ord[i],h='<div class="meta"><span>Предложение '+(i+1)+' из '+ord.length+'</span><span>Верно: '+sc+'</span></div><div class="bar"><i style="width:'+(i/ord.length*100)+'%"></i></div><div class="s" id="snt">'+d.s+'</div><div class="opts">';
+ ["p","o","n"].forEach(function(k){h+='<button data-k="'+k+'">'+T[k]+'</button>'});
+ $("q").innerHTML=h+'</div><p><button class="btn" id="hb">Подсказка</button></p><div id="hint"></div><div id="fb"></div>';
+ $("q").querySelectorAll(".opts button").forEach(function(b){b.onclick=function(){ans(b.dataset.k)}});
+ $("hb").onclick=function(){var e=$("snt");if(e.classList.contains("ann")){e.classList.remove("ann");e.innerHTML=d.s;$("hint").innerHTML="";$("hb").textContent="Подсказка"}else{ann(d);$("hb").textContent="Скрыть подсказку"}}
+}
+function ans(k){
+ var d=ord[i],r=k===d.a;
+ if(r)sc++;else miss.push(d);
+ $("q").querySelectorAll(".opts button").forEach(function(b){b.disabled=true;if(b.dataset.k===d.a)b.classList.add("ok");else if(b.dataset.k===k)b.classList.add("no")});
+ $("fb").innerHTML='<div class="fb"><b class="'+(r?"g":"b")+'">'+(r?"Верно!":"Неверно.")+'</b> Правильный ответ: <b>'+T[d.a]+'</b>.<br>'+d.e+'</div><p><button class="btn pri" id="nx">'+(i+1<ord.length?"Дальше":"Результат")+'</button></p>';
+ $("nx").onclick=function(){i++;show()}
+}
+function fin(){
+ $("q").classList.add("hid");var r=$("res");r.classList.remove("hid");
+ var p=Math.round(sc/ord.length*100);
+ r.innerHTML='<p class="big">'+sc+' из '+ord.length+' ('+p+'%)</p><p>'+(p==100?"Отлично! Все типы подчинения определены верно.":p>=70?"Хороший результат. Загляни в памятку и повтори ошибки.":"Перечитай памятку и попробуй ещё раз.")+'</p><p>'+(miss.length?'<button class="btn pri" id="rm">Повторить ошибки ('+miss.length+')</button> ':'')+'<button class="btn" id="ra">Начать заново</button> <button class="btn" id="mm">Памятка</button></p>';
+ if(miss.length)$("rm").onclick=function(){start(miss)};
+ $("ra").onclick=function(){start(D)};$("mm").onclick=function(){tab(true)}
+}
+start(D);
+</script>
+</body>
+</html>
